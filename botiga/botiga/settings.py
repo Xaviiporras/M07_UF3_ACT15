@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'botiga.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ACT15',  # Nom de la base de dades
+        'USER': 'botiga',  # Usuari de PostgreSQL
+        'PASSWORD': 'botiga',  # Contrasenya (posa la teva real)
+        'HOST': 'db_act15',  # O la IP del servidor si és remot
+        'PORT': '5433',  # Port per defecte de PostgreSQL
     }
 }
 
