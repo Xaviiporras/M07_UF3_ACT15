@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'cart',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -77,11 +79,11 @@ WSGI_APPLICATION = 'botiga.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ACT15',  # Nom de la base de dades
-        'USER': 'botiga',  # Usuari de PostgreSQL
-        'PASSWORD': 'botiga',  # Contrasenya (posa la teva real)
-        'HOST': 'db_act15',  # O la IP del servidor si és remot
-        'PORT': '5433',  # Port per defecte de PostgreSQL
+        'NAME': 'ACT15',
+        'USER': 'botiga',
+        'PASSWORD': 'botiga',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 
