@@ -1,5 +1,5 @@
 from django.db import models
-
+from catalog.models import Product
 
 #Modelo de Usuario
 class User(models.Model):
@@ -14,7 +14,7 @@ class Cart(models.Model):
 #Modelo de Item de Carrito
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name="items")
-    product_id = models.IntegerField()  # Relació amb producte (de moment nomes el id ja que no tinc la part del Xavi encara, encara no hem fet merge)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):

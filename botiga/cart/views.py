@@ -1,6 +1,9 @@
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
-from .models import Cart, CartItem, User  
+from .models import Cart, CartItem, User    
+from catalog.models import Product  
+
+
 
 def afegir_al_carreto(request, user_id, product_id, quantity=1):
     # Comprovem si l'usuari existeix
@@ -24,8 +27,8 @@ def afegir_al_carreto(request, user_id, product_id, quantity=1):
         cart_item.quantity += quantity
         cart_item.save()
     except CartItem.DoesNotExist:
-        # Si no està al carretó, el creem amb la quantitat indicada
-        cart_item = CartItem(cart=cart, product_id=product_id, quantity=quantity)
+        product = get_object_or_404(Product, id=product_id)  # Obtenemos el producto real
+        cart_item = CartItem(cart=cart, product=product, quantity=quantity)
         cart_item.save()
 
     return JsonResponse({

@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'botiga.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django',
-        'USER': 'admin',
-        'PASSWORD': 'admin',
+        'NAME': 'ACT15',
+        'USER': 'botiga',
+        'PASSWORD': 'botiga',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 

@@ -4,7 +4,7 @@ from .models import Comanda, ProducteComanda
 class ProducteComandaSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProducteComanda
-        fields = ['id', 'comanda', 'producte_id', 'quantitat', 'preu']
+        fields = ['id', 'comanda', 'producte', 'quantitat', 'preu']
 
 class ComandaSerializer(serializers.ModelSerializer):
     class Meta:

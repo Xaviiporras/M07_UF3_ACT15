@@ -1,5 +1,6 @@
 from django.db import models
 from cart.models import User
+from catalog.models import Product
 
 # Model per les comandes
 class Comanda(models.Model):
@@ -25,7 +26,7 @@ class Comanda(models.Model):
 # Model pels productes de cada comanda
 class ProducteComanda(models.Model):
     comanda = models.ForeignKey(Comanda, on_delete=models.CASCADE)
-    producte_id = models.IntegerField()  # De moment es IntegerField fins que tinguem Product
+    producte = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantitat = models.IntegerField()
     preu = models.DecimalField(max_digits=10, decimal_places=2)
 
