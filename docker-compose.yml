@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+  db_act15:  # 🟢 Cambiamos "db" por "db_act15"
+    image: postgres:13
+    container_name: db_act15  # 🟢 Cambiamos "db" por "db_act15"
+    environment:  
+      - POSTGRES_DB=ACT15
+      - POSTGRES_PASSWORD=botiga
+      - POSTGRES_USER=botiga
+    ports:
+      - "5433:5432"  # 🟢 Cambiamos el puerto (5433 en el host, 5432 en el contenedor)
+    volumes:
+      - local_pgdata_act15:/var/lib/postgresql/data
+
+  pgadmin_act15:  # 🟢 Cambiamos "pgadmin4" por "pgadmin_act15"
+    image: dpage/pgadmin4
+    container_name: pgadmin_act15  # 🟢 Cambiamos "pgadmin4" por "pgadmin_act15"
+    ports:
+      - "9080:80"  # 🟢 Cambiamos el puerto para no chocar con el otro pgAdmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: roger.sobrino@xtec.cat
+      PGADMIN_DEFAULT_PASSWORD: roger123
+    volumes:
+      - pgadmin-data-act15:/var/lib/pgadmin
+
+volumes:
+  local_pgdata_act15:
+  pgadmin-data-act15:
