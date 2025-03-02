@@ -1,9 +1,9 @@
 from django.db import models
-from orders.models import Order
+from orders.models import Comanda
 from cart.models import User
 
 class Payment(models.Model):
-    order_id = models.ForeignKey(Order, on_delete=models.CASCADE, related_name="payments")
+    order_id = models.ForeignKey(Comanda, on_delete=models.CASCADE, related_name="payments")
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="payments")
     numero_tarjeta = models.CharField(max_length=16)
     fecha_caducidad = models.CharField(max_length=5) 
