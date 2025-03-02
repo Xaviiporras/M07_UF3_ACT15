@@ -16,9 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from cart import views as cart_views
+from rest_framework import routers
 
+router = routers.DefaultRouter()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls')),
+    path('api/', include([
+        path('cart/add/<int:user_id>/<int:product_id>/', cart_views.afegir_al_carreto, name='add_to_cart'),
+        path('', include('orders.urls')),  # Incluye todas las URLs de orders
+    ])),
+    # Afegim l'API browser de DRF
+    path('api-auth/', include('rest_framework.urls')),
 
 ]
