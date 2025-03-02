@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'catalog',
+    'payment',
     'rest_framework',
     'cart',
-    'orders',
+    'orders'
+
 ]
 
 MIDDLEWARE = [
@@ -79,11 +82,11 @@ WSGI_APPLICATION = 'botiga.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ACT15',
-        'USER': 'botiga',
-        'PASSWORD': 'botiga',
+        'NAME': 'django',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
-        'PORT': '5433',
+        'PORT': '5432',
     }
 }
 
